@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CodeJay.API.Controllers
 {
-    //https://localhost:5001/api/categories
+    //https://localhost:7163/api/categories
     [Route("api/[controller]")]
     [ApiController]
     public class CategoriesController : ControllerBase

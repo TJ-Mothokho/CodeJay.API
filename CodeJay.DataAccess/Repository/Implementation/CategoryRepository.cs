@@ -1,5 +1,6 @@
 ﻿using CodeJay.DataAccess.Data;
 using CodeJay.DataAccess.Models.Domain;
+using CodeJay.DataAccess.Repository.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CodeJay.DataAccess.Repository.Implementation
 {
-    public class CategoryRepository
+    public class CategoryRepository : ICategoryRepository
     {
         private readonly ApplicationDbContext _context;
         public CategoryRepository(ApplicationDbContext context)
@@ -22,6 +23,11 @@ namespace CodeJay.DataAccess.Repository.Implementation
             await _context.SaveChangesAsync();
 
             return category;
+        }
+
+        public async Task<IEnumerable<Category>> GetAllAsync()
+        {
+            return _context.Categories.ToList();
         }
     }
 }
