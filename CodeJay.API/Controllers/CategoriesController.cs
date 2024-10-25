@@ -41,5 +41,20 @@ namespace CodeJay.API.Controllers
             return Ok(response);
 
         }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllCategories()
+        {
+            var categories = await _categoryRepository.GetAllAsync();
+
+            var response = categories.Select(x => new CategoryDto
+            {
+                Id = x.Id,
+                Name = x.Name,
+                UrlHandle = x.UrlHandle
+            });
+
+            return Ok(response);
+        }
     }
 }

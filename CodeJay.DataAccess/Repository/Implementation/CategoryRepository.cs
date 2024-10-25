@@ -1,6 +1,7 @@
 ﻿using CodeJay.DataAccess.Data;
 using CodeJay.DataAccess.Models.Domain;
 using CodeJay.DataAccess.Repository.Interface;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +28,7 @@ namespace CodeJay.DataAccess.Repository.Implementation
 
         public async Task<IEnumerable<Category>> GetAllAsync()
         {
-            return _context.Categories.ToList();
+            return await _context.Categories.ToListAsync();
         }
     }
 }
