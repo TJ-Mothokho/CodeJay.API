@@ -12,11 +12,7 @@ namespace CodeJay.API.Controllers
     [ApiController]
     public class CategoriesController : ControllerBase
     {
-        private readonly ApplicationDbContext _context;
-        public CategoriesController(ApplicationDbContext context)
-        {
-            _context = context;
-        }
+        
 
         [HttpPost]
         public async Task<IActionResult> CreateCategory(CreateCategoryRequestDto request)
