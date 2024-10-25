@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using CodeJay.DataAccess.Data;
+using CodeJay.DataAccess.Repository.Interface;
+using CodeJay.DataAccess.Repository.Implementation;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +19,8 @@ builder.Services.AddSwaggerGen(c =>
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 
 var app = builder.Build();
 
